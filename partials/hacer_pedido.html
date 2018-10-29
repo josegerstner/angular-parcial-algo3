@@ -1,0 +1,22 @@
+<div ng-controller="HacerPedidoCtrl as pedidoCtrl">
+    <h1>Hacer Pedido</h1>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th><strong>Gusto Empanada</strong></th>
+                <th><strong>Menos</strong></th>
+                <th><strong>Cantidad</strong></th>
+                <th><strong>Más</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pedido in pedidoCtrl.HacerPedidoSrvc.pedido">
+                <td> {{pedido.gusto}} </td>
+                <td><button type="button" class="btn btn-default" ng-click="pedidoCtrl.HacerPedidoSrvc.pedido.restarCantidad()"><<</button></td>
+                <td>{{pedido.cantidad}}</td>
+                <td><button type="button" class="btn btn-default" ng-click="pedidoCtrl.HacerPedidoSrvc.pedido.sumarCantidad()">>></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" ui-sref="finalizarPedido">Finalizar Pedido</button>
+</div>
